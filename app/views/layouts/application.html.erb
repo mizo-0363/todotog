@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do To G</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <header>
+    <nav>
+      <ul class = "header_menu">
+        <li class = header_menu_title><%= link_to "To Do To G", root_path, class: "nav-link" %></li>
+        <li class = "nav-link">mizo mizoさん</li>
+        <li>
+          <ul class = "header_menu_inner">
+            <li><%= link_to "新規リスト", "#", class = "nav-link listNew" %></li>
+            <li><%= link_to "ログアウト", "#", class = "nav-link" %></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+    <%= yield %>
+  </body>
+</html>
