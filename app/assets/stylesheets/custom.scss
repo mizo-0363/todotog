@@ -10,7 +10,6 @@ body{
     .header_menu{
       display: flex;
       width: 100%;
-      position: relative;
       margin: 0;
       padding: 0;
       justify-content: space-between;
@@ -18,7 +17,7 @@ body{
       li{
         list-style: none;
         color: #fff;
-        a{
+        .nav-link{
           color: #fff;
           &:hover{
             opacity: 0.5;
@@ -29,6 +28,10 @@ body{
         transform: translate(-50% -50%);
         font-size: 25px;
         font-weight: bold;
+        .nav-link{
+          font-family: 'Abril Fatface', cursive;
+          font-weight: normal;
+        }
       }
       &_inner{
         display: flex;

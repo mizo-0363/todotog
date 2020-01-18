@@ -4,27 +4,24 @@
     <title>To Do To G</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-  <header class = "header">
-    <nav class = "nav">
-      <ul class = "header_menu">
-        <li class = header_menu_title><%= link_to "To Do APP(仮)", root_path, class: "nav-link" %></li>
-        <li class = "nav-link">mizo mizoさん</li>
-        <li>
-          <ul class = "header_menu_inner">
-            <li><%= link_to "新規リスト", "#", class: "nav-link listNew" %></li>
-            <li><%= link_to "ログアウト", "#", class: "nav-link" %></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </header>
+    <%= render 'top/header'%>
+    <% if flash[:notice] %>
+      <div class = "notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class = "alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
