@@ -1,5 +1,8 @@
 class CardController < ApplicationController
-  before_action :set_card, only: %i(show edit update destroy)
+  before_action :set_card, only: %i( show edit update destroy)
+
+  def index
+  end
 
   def new
     @card = Card.new
@@ -22,7 +25,6 @@ class CardController < ApplicationController
   end
 
   def update
-    @card = Card.find(params[:id])
     if @card.update_attributes(card_params)
       redirect_to :root
     else

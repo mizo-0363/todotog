@@ -4,7 +4,7 @@
     <% end %>
   <div class='container'>
     <%= form_with model: @card, url: { action: :create }, html: { class: 'cardnewForm' }, local: true do |f| %>
-    <%# <%= f.hidden_field :list_id, value: @list.id %>
+    <%= f.hidden_field :list_id, value: @list.id %>
       <div class="cardnewForm_title">
         <%= f.label :title %>
         <%= f.text_field :title, autofocus: true, class: "form-control", placeholder: "カード名" %>
@@ -12,8 +12,8 @@
       <div class="cardnewForm_memo">
         <%= f.label :memo %>
         <%= f.text_area :memo, autofocus: true, class: "form-control", placeholder: "詳細" %>
-      <div class="text-center"><%= f.submit "作成する", class: "submitBtn" %></div>
       </div>
+      <div class="text-center"><%= f.submit "作成する", class: "submitBtn" %></div>
     <% end %>
   </div>
 </div>
