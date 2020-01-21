@@ -1,0 +1,16 @@
+.cardeditPgae {
+  .cardeditForm {
+    max-width: 500px;
+    margin: 0px auto 0;
+    &_title, &_memo {
+      margin-bottom: 30px;
+    }
+    &_status{
+      justify-content: space-between;
+    }
+    #card_status{
+      float: right;
+      margin-top: 10px;
+    }
+  }
+}
