@@ -1,13 +1,13 @@
 <header class = "header">
     <nav class = "nav">
       <ul class = "header_menu">
-        <li class = header_menu_title><%= link_to "To Do APP(仮)", root_path, class: "nav-link" %></li>
+        <li class = header_menu_title><%= link_to "Task Management", root_path, class: "nav-link" %></li>
         <% if user_signed_in? %>
           <li class = "nav-link"><%= current_user.name %></li>
         <% end %>
         <li>
           <ul class = "header_menu_inner">
-            <li><%= link_to "新規リスト", "#", class: "nav-link listNew" if current_user %></li>
+            <li><%= link_to "新規リスト", new_list_path, class: "nav-link listNew" if current_user %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" if current_user %></li>
           </ul>
         </li>
