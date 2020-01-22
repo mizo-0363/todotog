@@ -44,7 +44,14 @@ body{
             margin-left: 10px;
             font-size: 20px;
           }
-
+        }
+        .groupNew{
+          &::after{
+            font-family: "Font Awesome 5 Free";
+            content: "\f234";
+            margin-left: 10px;
+            font-size: 20px;
+          }
         }
       }
     }

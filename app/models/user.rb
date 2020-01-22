@@ -15,5 +15,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }
 
+  has_many :group_users
+  has_many :groups, through: :group_users
   has_many :lists, dependent: :destroy
 end
