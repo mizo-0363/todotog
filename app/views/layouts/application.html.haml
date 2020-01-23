@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Task Management
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:href => "https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+%body
+  = render 'top/header'
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
+  - if flash[:alert]
+    .alert
+      = flash[:alert]
+  = yield

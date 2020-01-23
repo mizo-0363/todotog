@@ -1,6 +1,0 @@
-<%= form_with model: @group, url: { action: :create }, class: "container", local: true do |f| %>
-  <%= f.label :Group %>
-  <%= f.hidden_field :id, value: @group.id %>
-  <%= f.text_field :name, autofocus: true, class: "form-control listName", placeholder: "グループ名" %>
-  <div class="text-center"><%= f.submit "作成", class: "submitBtn" %></div>
-<% end %>

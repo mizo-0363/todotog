@@ -1,0 +1,15 @@
+.groups
+  %h3 Groups
+  = link_to "new", new_group_path, class: "groups_new"
+.container_group
+  - current_user.groups.each do |group|
+    %ul
+      = link_to group_path(group), class: 'show_link' do
+        %li
+          - if group.name?
+            = group.name
+          - else
+            %p グループを作成して下さい
+        %li.list_group_action
+          = link_to content_tag(:i, '', class: 'fas fa-trash'), group, method: :delete, data: { confirm: "#{group.name}を削除して大丈夫ですか？" }
+          = link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_group_path(group))

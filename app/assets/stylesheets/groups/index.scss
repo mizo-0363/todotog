@@ -1,0 +1,53 @@
+.groups {
+  font-family: 'Abril Fatface', cursive;
+  position: relative;
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    margin: 0 auto;
+  }
+  &_new {
+    margin: 10px 10px 0 0;
+  }
+}
+
+.groups:after {
+  position: absolute;
+  content: '';
+  left: -7px;
+  top: -7px;
+  border-width: 0 0 15px 15px;
+  border-style: solid;
+  border-color: #fff #fff #a8d4ff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.container_group{
+  ul, ol {
+    display: flex;
+    justify-content: space-between;
+    background: #fffcf4;
+    border-radius :8px;
+    box-shadow :0px 0px 5px silver;
+    padding: 0.5em 0.5em 0.5em 2em;
+    margin-top: 10px;
+    ul li, ol li {
+      line-height: 1.5;
+      padding: 0.5em 0;
+    }
+    .list_group_action{
+      display: flex;
+      float: right;
+      margin-right: 10px;
+      .fas {
+        margin-left: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Task Management Group
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:href => "https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet", :type => "text/css"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %header.header
+    %nav.nav
+      %ul.header_menu
+        %li.header_menu_title= link_to "Task Management", root_path, class: "nav-link"
+        - if user_signed_in?
+          %li.nav-link= current_user.name
+        %li
+          %ul.header_menu_inner
+            %li= link_to "グループ一覧", groups_path, class: "nav-link groupNew" if current_user
+            %li= link_to "グループリスト作成", new_list_path, class: "nav-link listNew" if current_user
+            %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" if current_user
+
+
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
+  - if flash[:alert]
+    .alert
+      = flash[:alert]
+= yield

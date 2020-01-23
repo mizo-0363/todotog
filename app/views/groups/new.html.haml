@@ -1,0 +1,32 @@
+= form_with model: @group, url: { action: :create }, class: "container", local: true do |f|
+  = f.label :Group
+  = f.hidden_field :id, value: @group.id
+  = f.text_field :name, autofocus: true, class: "form-control listName", placeholder: "グループ名"
+  .chat-group-form__field
+    .chat-group-form__field--left
+      %label.chat-group-form__label{:for => "chat_group_メンバーを追加"} メンバーを追加
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        %input#user-search-field.form-control{:placeholder => "ユーザー名を入力してください", :type => "text"}/
+      #user-search-result
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      %label.chat-group-form__label{:for => "chat_group_メンバー"} Member
+    .chat-group-form__field--right
+      #chat-group-users.js-add-user
+        .chat-group-user.clearfix.js-chat-member
+          %input{name: "group[user_ids][]", type: "hidden", value: current_user.id}
+          %p.chat-group-user__name= current_user.name
+
+        - @group.users.each do |user|
+          - if current_user.name != user.name
+            .chat-group-user.clearfix.js-chat-member
+              %input{name: "group[user_ids][]", type: "hidden", value: user.id}
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+                削除
+              %p.chat-group-user__name
+                = user.name
+
+
+  .text-center= f.submit "作成する", class: "submitBtn"
