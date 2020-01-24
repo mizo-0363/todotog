@@ -1,6 +1,6 @@
 .groups
   %h4= @group.name
-  = link_to "new list", new_group_grouplist_path(@groups.ids), class: "nav-link listNew"
+  = link_to "new list", new_group_grouplist_path(@group.id), class: "nav-link listNew"
 .topPage
   .listWrapper
     - @grouplists.each do |grouplist|

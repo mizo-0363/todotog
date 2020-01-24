@@ -23,7 +23,7 @@ class GroupsController < ApplicationController
 
   def show
     @groups = Group.all
-    @grouplists = Grouplist.where(user: current_user).order("created_at ASC")
+    @grouplists = Grouplist.where(user: current_user, group: @group).order("created_at ASC")
   end
 
   def edit
