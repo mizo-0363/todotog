@@ -18,9 +18,9 @@
           %li.nav-link= current_user.name
         %li
           %ul.header_menu_inner
-            %li= link_to "グループ一覧", groups_path, class: "nav-link groupNew" if current_user
-            %li= link_to "グループリスト作成", new_list_path, class: "nav-link listNew" if current_user
-            %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" if current_user
+            %li= link_to "グループ一覧", groups_path, class: "nav-link groupNew"
+            %li= link_to "グループ作成", new_group_path, class: "nav-link listNew"
+            %li= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"
 
 
   - if flash[:notice]

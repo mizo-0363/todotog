@@ -1,0 +1,8 @@
+.listeditPage
+  - if @grouplist.errors.any?
+    %p.alert タイトルは1〜255文字内で入力して下さい
+  .container
+    = form_with model: @grouplist, url: { action: :update }, html: { class: 'listForm' }, local: true do |f|
+      = f.label :title
+      = f.text_field :title, class: "form-control  listName", placeholder: "リスト名"
+      .text-center= f.submit "編集する", class: "submitBtn"

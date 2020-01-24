@@ -1,1 +1,25 @@
-%h2= @group.name
+.groups
+  %h4= @group.name
+  = link_to "new list", new_group_grouplist_path(@groups.ids), class: "nav-link listNew"
+.topPage
+  .listWrapper
+    - @grouplists.each do |grouplist|
+      .list
+        .list_header
+          %h3.list_header_title= grouplist.title
+          .list_header_action
+            = link_to content_tag(:i, '', class: 'fas fa-trash'), group_grouplist_path(grouplist.group_id, grouplist), method: :delete, data: { confirm: "#{grouplist.title}を削除して大丈夫ですか？" }
+            = link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_group_grouplist_path(@group.id, grouplist))
+        -# .cardWrapper
+        -#   - list.cards.each do |card|
+        -#     = link_to list_card_path(list, card), class:"cardDetail_link" do
+        -#       .card
+        -#         %h3.card_title= card.title
+        -#         .card_memo
+        -#           .card_status= card.status
+        -#           - if card.memo.size > 0
+        -#             .card_detail.is-exist
+        -#               %i.fas.fa-bars
+        -#   .addCard
+        -#     %i.far.fa-plus-square
+        -#     = link_to "さらにカードを追加", new_list_card_path(list), class: "addCard_link"
