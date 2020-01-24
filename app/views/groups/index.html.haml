@@ -1,6 +1,5 @@
 .groups
   %h3 Groups
-  = link_to "new", new_group_path, class: "groups_new"
 .container_group
   - current_user.groups.each do |group|
     %ul

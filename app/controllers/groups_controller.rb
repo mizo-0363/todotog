@@ -1,10 +1,9 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i( show edit update destroy)
 
-  layout 'groups'
+  layout 'group'
 
   def index
-    @groups = Group.all
   end
 
 
@@ -23,6 +22,8 @@ class GroupsController < ApplicationController
   end
 
   def show
+    @groups = Group.all
+    @grouplists = Grouplist.where(user: current_user).order("created_at ASC")
   end
 
   def edit
@@ -49,6 +50,4 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
-
-
 end

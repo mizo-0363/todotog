@@ -1,0 +1,7 @@
+.listnewPage
+  - if @grouplist.errors.any?
+    %p.alert タイトルは1～255文字以内で入力してください
+  = form_with model: @grouplist, url: { action: :create }, class: "container", local: true do |f|
+    = f.label :title
+    = f.text_field :title, autofocus: true, class: "form-control listName", placeholder: "リスト名"
+    .text-center= f.submit "作成", class: "submitBtn"
