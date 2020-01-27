@@ -1,39 +1,55 @@
 .topPage {
+  width: 100%;
   min-height: 93vh;
   padding-top: 30px;
-  // background: #bababa;
   overflow-x: scroll;
   .listWrapper {
     display: flex;
+    flex-wrap: wrap;
     height: 100%;
     align-items: baseline;
     .list {
+      height: 100%;
+      width: 25vw;
       position: relative;
-      background: #e2e4e6;
       padding: 10px;
-      margin-left: 20px;
+      margin:20px 20px;
       min-width: 250px;
+      box-shadow: 0 3px 5px rgba(90, 194, 238, 0.5);
+      border: solid 1px #95ccff;
+      border-radius: 8px;
       &:last-child {
         margin-right: 20px;
       }
       &_header {
-        margin-bottom: 20px;
+        width: 100%;
+        margin-bottom: 30px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         &_title {
+          position: absolute;
+          top: -15px;
           font-size: 20px;
           font-family: 'Montserrat', sans-serif;
+          padding: 3px 3px;
           margin: 0;
+          border: solid 3px #95ccff;
+          border-radius: 8px;
+          background-color: #fff;
+          color: #565656;
         }
         &_action{
+          position: absolute;
+          right: 3px;
+          top: 3px;
           display: flex;
           .fa-pen, .fa-trash{
             font-size: 18px;
             color: #8c8c8c;
           }
           .fa-trash{
-            margin-right: 10px;
+            margin-right: 5px;
           }
         }
       }
@@ -58,7 +74,7 @@
               display: none;
               &.is-exist {
                 display: inline-block;
-                color: #999;
+                color: #323232;
                 float: right;
                 margin-top: 5px;
                 & > i {

@@ -5,10 +5,11 @@
     &_title, &_memo {
       margin-bottom: 30px;
     }
-    &_status{
-      justify-content: space-between;
-    }
     #card_status{
+      float: right;
+      margin-top: 10px;
+    }
+    #groupcard_status{
       float: right;
       margin-top: 10px;
     }

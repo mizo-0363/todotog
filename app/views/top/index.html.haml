@@ -1,3 +1,6 @@
+.groups
+  %h4 Tasks
+  = link_to "new Task", new_list_path, class: "nav-link listNew" if current_user
 .topPage
   .listWrapper
     - @lists.each do |list|
@@ -14,9 +17,11 @@
                 %h3.card_title= card.title
                 .card_memo
                   .card_status= card.status
-                  - if card.memo.size > 0
+                  - if card.memo.size > 8
                     .card_detail.is-exist
                       %i.fas.fa-bars
+                  - else
+                    .card_detail.is-exist= card.memo
           .addCard
             %i.far.fa-plus-square
             = link_to "さらにカードを追加", new_list_card_path(list), class: "addCard_link"

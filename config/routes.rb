@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'top#index'
   resources :users, only: [:index, :edit, :update]
   resources :groups do
-    resources :grouplist
+    resources :grouplist do
+      resources :groupcard
+    end
   end
 
   resources :list, only: [:new, :create, :edit, :update, :destroy]do
