@@ -10,7 +10,7 @@
         = link_to "new Task", new_group_grouplist_path(@group.id), class: "nav-link listNew"
 .topPage
   .listWrapper
-    - @grouplists.each do |grouplist|
+    - @group.grouplists.each do |grouplist|
       .list
         .list_header
           %h3.list_header_title= grouplist.title
