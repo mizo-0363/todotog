@@ -4,6 +4,6 @@ class Grouplist < ApplicationRecord
 
   belongs_to :user
   belongs_to :group
-  # has_many :cards, dependent: :destroy
+  has_many :groupcards, dependent: :destroy
 
 end

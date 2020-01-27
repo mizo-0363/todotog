@@ -1,0 +1,19 @@
+%h2 Details
+.carddetailPage
+  .container
+    .cardContents
+      .cardContents_title
+        %div タイトル
+        %h3= @groupcard.title
+      .cardContents_memo
+        %div メモ
+        %div= @groupcard.memo
+      .cardContents_listStatus
+        %div リスト名
+        %div= @groupcard.grouplist.title
+      .cardContents_listStatus
+        %div ステータス
+        %div= @groupcard.status
+      .cardContents_btnArea
+        = link_to '編集する', edit_group_grouplist_groupcard_path(@grouplist.group_id, @grouplist, @groupcard), class: "edit_btn"
+        = link_to '削除', group_grouplist_groupcard_path(@grouplist.group_id, @grouplist, @groupcard), class: "text-danger delete_btn", method: :delete, data: { confirm: "このカードを削除して大丈夫ですか?" }

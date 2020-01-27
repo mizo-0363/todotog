@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_23_082311) do
+ActiveRecord::Schema.define(version: 2020_01_24_080153) do
 
   create_table "cards", force: :cascade do |t|
     t.string "title", limit: 255, null: false
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 2020_01_23_082311) do
     t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_group_users_on_group_id"
     t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groupcards", force: :cascade do |t|
+    t.string "title", limit: 255, null: false
+    t.text "memo", limit: 1000
+    t.integer "status", default: 0
+    t.integer "grouplist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["grouplist_id"], name: "index_groupcards_on_grouplist_id"
   end
 
   create_table "grouplists", force: :cascade do |t|

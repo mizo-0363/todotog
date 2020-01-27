@@ -1,6 +1,13 @@
 .groups
-  %h4= @group.name
-  = link_to "new list", new_group_grouplist_path(@group.id), class: "nav-link listNew"
+  .container_group
+    %h4.show_link_group= @group.name
+    .list_group_action
+      .list_group_action_member
+        - @group.users.each do |user|
+          %p :
+          %p= user.name
+      .list_group_action_fas
+        = link_to "new Task", new_group_grouplist_path(@group.id), class: "nav-link listNew"
 .topPage
   .listWrapper
     - @grouplists.each do |grouplist|
@@ -10,16 +17,18 @@
           .list_header_action
             = link_to content_tag(:i, '', class: 'fas fa-trash'), group_grouplist_path(grouplist.group_id, grouplist), method: :delete, data: { confirm: "#{grouplist.title}を削除して大丈夫ですか？" }
             = link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_group_grouplist_path(@group.id, grouplist))
-        -# .cardWrapper
-        -#   - list.cards.each do |card|
-        -#     = link_to list_card_path(list, card), class:"cardDetail_link" do
-        -#       .card
-        -#         %h3.card_title= card.title
-        -#         .card_memo
-        -#           .card_status= card.status
-        -#           - if card.memo.size > 0
-        -#             .card_detail.is-exist
-        -#               %i.fas.fa-bars
-        -#   .addCard
-        -#     %i.far.fa-plus-square
-        -#     = link_to "さらにカードを追加", new_list_card_path(list), class: "addCard_link"
+        .cardWrapper
+          - grouplist.groupcards.each do |groupcard|
+            = link_to group_grouplist_groupcard_path(grouplist.group_id, grouplist, groupcard), class:"cardDetail_link" do
+              .card
+                %h3.card_title= groupcard.title
+                .card_memo
+                  .card_status= groupcard.status
+                  - if groupcard.memo.size > 8
+                    .card_detail.is-exist
+                      %i.fas.fa-bars
+                  - else
+                    .card_detail.is-exist= groupcard.memo
+          .addCard
+            %i.far.fa-plus-square
+            = link_to "さらにカードを追加", new_group_grouplist_groupcard_path(@group.id, grouplist), class: "addCard_link"

@@ -52,7 +52,6 @@ class GrouplistController < ApplicationController
     end
 
     def set_grouplist
-      # binding.pry
       @grouplist = Grouplist.find(params[:id])
     end
 end
